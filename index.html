@@ -97,6 +97,17 @@
       color: #fff;
       font-weight: 400;
     }
+/* center all small pill subtitles globally */
+.section-subtitle {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.section-subtitle .theme-button {
+  margin: 0 auto;
+}
 
     #navbar .nav-link.active,
     #navbar .nav-link:hover {
@@ -459,10 +470,10 @@
   <!-- Things I Love -->
   <section id="things-i-love">
     <div class="container">
-      <h6 class="text-center">
-        <span class="theme-button theme-text" data-text="Interests">Interests</span>
-      </h6>
-      <h2 class="section-heading text-center">Things I Love</h2>
+        <div class="section-subtitle">
+            <span class="theme-button theme-text" data-text="Interests">Interests</span>
+          </div>
+          <h2 class="section-heading text-center">Things I Love</h2>          
       <div class="row justify-content-center pt-3 gy-4">
         <div class="col-lg-4 col-md-6" data-aos="fade-up">
           <div class="card">
@@ -504,10 +515,10 @@
   <!-- About -->
   <section id="about">
     <div class="container">
-      <h6 class="text-center">
-        <span class="theme-button theme-text" data-text="But who am I?">But who am I?</span>
-      </h6>
-      <h2 class="section-heading text-center">About Me</h2>
+        <div class="section-subtitle">
+            <span class="theme-button theme-text" data-text="But who am I?">But who am I?</span>
+          </div>
+          <h2 class="section-heading text-center">About Me</h2>          
       <p class="text-center muted-text mt-3 mb-4">My story in a nutshell ;)</p>
       <div class="row justify-content-center align-items-center g-4" data-aos="fade-down" data-aos-delay="200">
         <div class="col-lg-4 text-center about-portrait">
@@ -530,10 +541,10 @@
   <!-- Skills -->
   <section id="skills">
     <div class="container text-center">
-      <h6>
-        <span class="theme-button theme-text" data-text="What do I know?">What do I know?</span>
-      </h6>
-      <h2 class="section-heading">Skills</h2>
+        <div class="section-subtitle">
+            <span class="theme-button theme-text" data-text="What do I know?">What do I know?</span>
+          </div>
+          <h2 class="section-heading text-center">Skills</h2>          
       <p class="muted-text mt-3 mb-4">Technologies I work with:</p>
       <div class="row justify-content-center row-cols-2 row-cols-md-3 row-cols-lg-6 mt-4 gy-4 text-center skills-container" data-aos="fade-up" data-aos-delay="200">
         <div class="col">
@@ -567,6 +578,236 @@
           </div>
         </div>
         <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/IntelliJ.png" class="skill-image" alt="IntelliJ">
+              <p class="skill-name">IntelliJ</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/Vs Code.png" class="skill-image" alt="VS Code">
+              <p class="skill-name">VS Code</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/JWT.svg" class="skill-image" alt="JWT">
+              <p class="skill-name">JWT</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/chatgpt.png" class="skill-image" alt="ChatGPT">
+              <p class="skill-name">ChatGPT</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/Grafana.png" class="skill-image" alt="Grafana">
+              <p class="skill-name">Grafana</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/power bi.png" class="skill-image" alt="Power BI">
+              <p class="skill-name">Power BI</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/Tensor Flow.png" class="skill-image" alt="TensorFlow">
+              <p class="skill-name">TensorFlow</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/GraphQL.png" class="skill-image" alt="GraphQL">
+              <p class="skill-name">GraphQL</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/Jest.png" class="skill-image" alt="Jest">
+              <p class="skill-name">Jest</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/redis.png" class="skill-image" alt="Redis">
+              <p class="skill-name">Redis</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/apache kafka.png" class="skill-image" alt="Apache Kafka">
+              <p class="skill-name">Apache Kafka</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/mongodb.png" class="skill-image" alt="MongoDB">
+              <p class="skill-name">MongoDB</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/postgresql.png" class="skill-image" alt="PostgreSQL">
+              <p class="skill-name">PostgreSQL</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/Ci:CD.webp" class="skill-image" alt="CI/CD">
+              <p class="skill-name">CI / CD</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/github.png" class="skill-image" alt="GitHub">
+              <p class="skill-name">GitHub</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/terraform.png" class="skill-image" alt="Terraform">
+              <p class="skill-name">Terraform</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/kubernetes.png" class="skill-image" alt="Kubernetes">
+              <p class="skill-name">Kubernetes</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/docker.png" class="skill-image" alt="Docker">
+              <p class="skill-name">Docker</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/Gcp.png" class="skill-image" alt="GCP">
+              <p class="skill-name">GCP</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/azure.png" class="skill-image" alt="Azure">
+              <p class="skill-name">Azure</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/AWS.png" class="skill-image" alt="AWS">
+              <p class="skill-name">AWS</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/spring boot.png" class="skill-image" alt="Spring Boot">
+              <p class="skill-name">Spring Boot</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/Asp.Net.png" class="skill-image" alt="ASP.NET">
+              <p class="skill-name">ASP.NET</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/bootstrap.png" class="skill-image" alt="Bootstrap">
+              <p class="skill-name">Bootstrap</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/Angular.png" class="skill-image" alt="Angular">
+              <p class="skill-name">Angular</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/react.png" class="skill-image" alt="React">
+              <p class="skill-name">React</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/css-3.png" class="skill-image" alt="CSS 3">
+              <p class="skill-name">CSS 3</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/html-5.png" class="skill-image" alt="HTML 5">
+              <p class="skill-name">HTML 5</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/SQL.png" class="skill-image" alt="SQL">
+              <p class="skill-name">SQL</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/golang.png" class="skill-image" alt="Golang">
+              <p class="skill-name">Golang</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/c-sharp.png" class="skill-image" alt="C#">
+              <p class="skill-name">C#</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/java.png" class="skill-image" alt="Java">
+              <p class="skill-name">Java</p>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="skill">
+              <img src="assets/images/skills/typescript.png" class="skill-image" alt="TypeScript">
+              <p class="skill-name">TypeScript</p>
+            </div>
+          </div>
+        <div class="col">
           <div class="skill">
             <img src="assets/images/skills/MongoDB.svg" class="skill-image" alt="MongoDB">
             <p class="skill-name">MongoDB</p>
@@ -579,10 +820,10 @@
   <!-- Projects -->
   <section id="projects">
     <div class="container">
-      <h6 class="text-center">
-        <span class="theme-button theme-text" data-text="What I've done?">What I've done?</span>
-      </h6>
-      <h2 class="section-heading text-center">Projects</h2>
+        <div class="section-subtitle">
+            <span class="theme-button theme-text" data-text="What I've done?">What I've done?</span>
+          </div>
+          <h2 class="section-heading text-center">Projects</h2>          
       <div class="row justify-content-center mt-4 gy-4" data-aos="fade-up" data-aos-delay="200">
         <div class="col-lg-4 col-md-6">
           <div class="card project-card">
@@ -674,10 +915,10 @@
   <!-- Contact -->
   <section id="contact">
     <div class="container">
-      <h6 class="text-center">
-        <span class="theme-button theme-text" data-text="What's next!">What's next!</span>
-      </h6>
-      <h2 class="section-heading text-center">Get In Touch</h2>
+        <div class="section-subtitle">
+            <span class="theme-button theme-text" data-text="What's next!">          What's next!</span>
+          </div>
+          <h2 class="section-heading text-center">Get In Touch</h2>          
       <p class="text-center muted-text mt-3 mb-4">Let's connect and build something great together.</p>
       <div class="row justify-content-center" data-aos="fade-down" data-aos-delay="500">
         <div class="col-lg-8">
