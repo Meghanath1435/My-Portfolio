@@ -3,45 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Meghanath Tattari - Full Stack Developer</title>
   <meta name="title" content="Meghanath Tattari - Full Stack Developer">
   <meta name="description" content="Meghanath Tattari - Passionate Full Stack Developer creating beautiful and responsive websites. Explore my portfolio and work.">
   <meta name="keywords" content="Meghanath Tattari, Full-Stack Developer, Backend Developer, Portfolio, Web Developer">
   <meta name="author" content="Meghanath Tattari">
-
   <!-- Open Graph -->
   <meta property="og:title" content="Meghanath Tattari - Full Stack Developer">
   <meta property="og:description" content="Passionate about crafting beautiful and responsive websites.">
   <meta property="og:image" content="assets/images/banner.webp">
   <meta property="og:type" content="website">
-
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Meghanath Tattari - Full Stack Developer">
   <meta name="twitter:description" content="Passionate about crafting beautiful and responsive websites.">
   <meta name="twitter:image" content="assets/images/banner.webp">
-
   <!-- Favicon -->
   <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
-
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:wght@300;400;500;600&display=swap">
-
   <!-- Vendor CSS -->
   <link rel="stylesheet" href="assets/css/aos.css">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/bootstrap-icons.min.css">
-
   <!-- Your main stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
-
   <style>
     :root {
-      /* keep same file name style: banner.webp from assets/images */
       --hero-bg: url('assets/images/banner.webp');
     }
-
     body {
       font-family: 'Rubik', system-ui, sans-serif;
       background-image: var(--hero-bg);
@@ -51,335 +41,197 @@
       background-repeat: no-repeat;
       color: #fff;
     }
-
-    /* section pill label */
-    .theme-button.theme-text {
-      background: rgba(104,58,183,.15);
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: .5rem;
-      padding: .4rem .75rem;
-      line-height: 1.2;
-      font-size: .95rem;
-      font-weight: 500;
-      display: inline-block;
-      position: relative;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      color: transparent;
+        /* Animated gradient overlay for background */
+        body::before {
+      content: "";
+      position: fixed;
+      left: 0; top: 0; right: 0; bottom: 0;
+      z-index: -2;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      opacity: 0.3;
+      pointer-events: none;
     }
-
-    .theme-button.theme-text::before {
-      content: attr(data-text);
-      background-image: linear-gradient(90deg,#6bdcff 0%,#ff6b6b 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-weight: 500;
+    @keyframes gradientBG {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
     }
+    
 
-    /* HEADER / NAV */
+    /* Floating orb animations */
+    .orb {
+      position: fixed;
+      width: 56px;
+      height: 56px;
+      background: rgba(255,255,255,0.09);
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.45;
+      z-index: 0;
+      animation: float 8s infinite ease-in-out alternate;
+    }
+    @keyframes float {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(-70px) scale(1.16);}
+    }
+    
+
+    /* Typing effect for 'Things I Love' heading */
+    .typing-text {
+      overflow: hidden;
+      border-right: .13em solid #23d5ab;
+      white-space: nowrap;
+      width: 13ch;
+      animation: typing 2.1s steps(13, end) infinite alternate;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 13ch }
+    }
     #header {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
+      top: 0; left: 0; width: 100%; z-index: 1000;
     }
 
     #navbar {
-      background-color: rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background-color: rgba(0,0,0,0.7);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.22);
     }
-
-    #navbar .nav-link {
-      color: #fff;
-      font-weight: 400;
-    }
-
-    /* center all small pill subtitles globally */
-    .section-subtitle {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-    .section-subtitle .theme-button {
-      margin: 0 auto;
-    }
-
+    #navbar .nav-link { color: #fff; font-weight: 500; }
     #navbar .nav-link.active,
-    #navbar .nav-link:hover {
-      color: #fff;
-      border-bottom: 2px solid #e056fd;
-    }
-
-    .logo {
-      font-weight: 500;
-      color: #fff;
-      text-decoration: none;
-    }
-    .logo span {
-      color: #fff;
-      font-size: 0.9rem;
-    }
-    .logo-name {
-      color: #fff;
-      font-weight: 500;
-      margin: 0 4px;
-    }
-
-    /* HERO */
+    #navbar .nav-link:hover { color: #fff; border-bottom: 2px solid #e056fd; }
+    .logo { font-weight:700; color:#fff; text-decoration:none; }
+    .logo span, .logo-name { color:#fff; }
+    /* HERO IMPROVED */
     #hero {
-      position: relative;
-      padding-top: 6rem;
-      padding-bottom: 4rem;
-      color: #fff;
+      position: relative; padding-top: 7rem; padding-bottom: 5rem; color: #fff;
     }
-
-    /* soft dark overlay so text is readable on banner.webp bg */
     #hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 20% 20%, rgba(255,0,255,0.2) 0%, rgba(0,0,0,0) 60%),
-                  radial-gradient(circle at 80% 0%, rgba(0,0,255,0.25) 0%, rgba(0,0,0,0) 60%),
-                  rgba(0,0,0,0.6);
+      background: radial-gradient(circle at 20% 20%, rgba(255,0,255,.19) 0%, rgba(0,0,0,0) 61%),
+                  radial-gradient(circle at 80% 0%, rgba(0,0,255,.19) 0%, rgba(0,0,0,0) 61%),
+                  rgba(0,0,0,0.60);
       pointer-events: none;
     }
+    #hero .container { position: relative; z-index: 2;}
+    .hero-img-wrapper { display:flex; justify-content:center; align-items:center;}
+    .hero-floating-img { width: 320px; height: 320px; object-fit:cover; border-radius:50%; border:5px solid rgba(255,255,255,0.22); box-shadow: 0 20px 40px rgba(0,0,0,0.8);}
+    .name { font-size: 3.1rem; letter-spacing: .02em; }
 
-    #hero .container {
+    .tagline.pro-summary { font-size:1.09rem; margin-top:-1.2rem; color:#fffbfb; }
+    .btn-showcase, .hero-role-badge { 
+      background:rgba(0,0,0,0.78); color:#fff; border:1px solid #e056fd; font-size:1.03rem;
+      box-shadow: 0 0 12px #e056fd22; 
+      animation: pulse 2s infinite alternate;
+    }
+    @keyframes pulse { to { box-shadow:0 0 14px #e056fd54; } }
+
+    .hero-actions { display: flex; gap:1rem; flex-wrap: wrap;}
+    .btn-primary, .primary-bg-btn { background:#0d6efd; color:#fff;}
+    .primary-bg-btn, .btn-danger, .btn-light { border-radius:12px;}
+    .primary-bg-btn:hover { box-shadow: 0 0 14px #6bdcff4d, 0 4px 14px #e056fd78;}
+    .btn-success { background: linear-gradient(90deg, #6bdcff 0%, #ff6b6b 100%); color:#fff; border:none; }
+    /* ABOUT IMPROVED */
+    #about, section, #things-i-love, #skills, #projects, #contact {
+      background-color: rgba(0,0,0,0.89); backdrop-filter: blur(8px); color: #fff; border-radius:16px;
+    }
+    .education {
+      margin-top:1.33rem;
+      background:rgba(255,255,255,0.07); padding:1.35rem; border-radius:12px;
+      box-shadow: 0 3px 18px rgba(0,0,0,0.13);
+    }
+    /* SKILLS ENHANCED */
+    .skills-container { margin-top:0.8rem;}
+    .skill-image { max-width:55px; max-height:55px;}
+    .card { background:#1a1a22; border-radius:15px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 4px 20px rgba(44,55,75,0.17); }
+    /* STACK HIGHLIGHTS */
+    .tech-stack-card { max-width:720px; margin:auto; background:rgba(44,44,54,0.98); border-radius:12px; box-shadow:0 2px 16px rgba(0,0,0,0.23); border:1px solid rgba(255,255,255,0.09);}
+    .tech-stack-card h4 { color:#ff6b6b; }
+    /* PROJECT BADGES */
+    .badge { font-size:0.87rem; padding:.38em .85em; margin-right:7px; }
+    .badge-ai { background:rgba(224,86,253,.2); color:#fa80f5; border:none; }
+    .badge-role { background:linear-gradient(90deg,#6bdcff 0,#ff6b6b 100%); color:#fff; }
+    /* FOOTER ENHANCED */
+    #footer { background:#000; color:#aaa; padding:2.4rem 0; font-size:1.07rem;}
+    #footer a { color:#6bdcff; font-weight:600;}
+    #footer span, #footer strong { color:#fff; font-weight:700; }
+    /* MEDIA QUERIES */
+    @media (max-width: 767.98px) {
+      #hero { text-align:center; padding-top:5rem;}
+      .hero-img-wrapper { margin-bottom:2rem; }
+    }
+     /* --- ADD ANIMATION STYLES --- */
+     body::before {
+      content: "";
+      position: fixed;
+      left: 0; top: 0; right: 0; bottom: 0;
+      z-index: -2;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    @keyframes gradientBG {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+    .orb {
+      position: fixed;
+      width: 56px;
+      height: 56px;
+      background: rgba(255,255,255,0.09);
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.45;
+      z-index: 0;
+      animation: float 8s infinite ease-in-out alternate;
+    }
+    @keyframes float {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(-70px) scale(1.16);}
+    }
+    .typing-text {
+      overflow: hidden;
+      border-right: .13em solid #23d5ab;
+      white-space: nowrap;
+      width: 13ch;
+      animation: typing 2.1s steps(13, end) infinite alternate;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 13ch }
+    }
+    /* --- GAP FIXES --- */
+    .wave-divider {
+      display: block;
+      margin-bottom: -28px; /* Overlaps next section to fix space */
+      line-height: 0;
       position: relative;
       z-index: 2;
     }
-
-    .hero-role-badge {
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.4);
-      font-size: 0.8rem;
+    #things-i-love {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
     }
-
-    .hero-text p {
-      color: #ccc;
-      max-width: 600px;
-    }
-
-    .social-links a {
-      color: #fff;
-      font-size: 1.4rem;
-      margin-right: 1rem;
-    }
-
-    .hero-img-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-floating-img {
-      width: 260px;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid rgba(255,255,255,0.15);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-      background-color: #000;
-    }
-
-    @media (min-width: 768px) {
-      .hero-floating-img {
-        width: 300px;
-        height: 300px;
-      }
-    }
-
-    @media (min-width: 992px) {
-      .hero-floating-img {
-        width: 340px;
-        height: 340px;
-      }
-    }
-
-    @media (max-width: 767.98px) {
-      #hero {
-        text-align: center;
-        padding-top: 5rem;
-      }
-      .hero-actions {
-        justify-content: center;
-      }
-      #navbar .offcanvas-body {
-        background-color: rgba(0,0,0,0.9);
-      }
-    }
-
-    /* GENERIC SECTION */
-    section {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-
-    .section-heading {
-      color: #fff;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .muted-text {
-      color: #999;
-    }
-
-    /* dark panels */
-    #things-i-love,
-    #skills,
-    #projects,
-    #contact,
-    #about {
-      background-color: rgba(0,0,0,0.8);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      color: #fff;
-    }
-
-    .card {
-      background-color: #1f1f1f;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.07);
-      color: #fff;
-      height: 100%;
-    }
-
-    .circle-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    .circle {
-      background: rgba(255,255,255,0.07);
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 1.25rem;
-      color: #fff;
-    }
-
-    .skill-image {
-      max-width: 48px;
-      max-height: 48px;
-      margin-bottom: 0.5rem;
-    }
-
-    .skill-name {
-      color: #fff;
-      font-size: .9rem;
-      margin: 0;
-    }
-
-    .project-card {
-      background-color: #1f1f1f;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.07);
-      color: #fff;
-      overflow: hidden;
-    }
-
-    .project-card .card-title {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .project-card .stacks {
-      font-size: 0.8rem;
-      color: #aaa;
-      margin-bottom: 0;
-    }
-
-    .description-container {
-      padding: 0 1rem 1rem;
-      color: #bbb;
-      font-size: .9rem;
-    }
-
-    .banner-container {
-      position: relative;
-    }
-
-    .banner-container .overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0,0,0,0.6);
-      opacity: 0;
-      transition: opacity .2s;
-    }
-
-    .banner-container:hover .overlay {
-      opacity: 1;
-    }
-
-    .banner-container .overlay a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      background-color: rgba(224,86,253,0.2);
-      border: 1px solid rgba(224,86,253,0.6);
-      padding: .5rem .75rem;
-      border-radius: 999px;
-    }
-
-    .banner {
-      width: 100%;
-      display: block;
-    }
-
-    .primary-bg-btn {
-      background-color: #0d6efd;
-      color: #fff;
-      border: none;
-    }
-
-    .in-progress {
-      cursor: not-allowed;
-      background-color: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
-    }
-
-    #footer {
-      background-color: #000;
-      color: #aaa;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-    }
-
-    #footer span,
-    #footer strong {
-      color: #fff;
-      font-weight: 500;
-    }
-
-    .section-label-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 0.5rem;
+    #experience, #professional-experience {
+      margin-top: 0 !important;
+      padding-top: 20px !important;
+      border-radius: 20px 20px 16px 16px;
     }
   </style>
 </head>
-
-
-
 <body data-bs-theme="dark" data-bs-spy="scroll" data-bs-target="#navbar">
-
   <!-- Header / Navbar -->
   <header id="header">
     <nav id="navbar" class="navbar navbar-expand-md">
@@ -387,7 +239,6 @@
         <a href="/" class="navbar-brand logo" data-aos="fade-down" data-aos-delay="600">
           <span><</span><span class="logo-name">Meghanath Tattari</span><span>/></span>
         </a>
-
         <button class="navbar-toggler border-0 text-white"
                 type="button"
                 data-bs-toggle="offcanvas"
@@ -397,7 +248,6 @@
                 data-aos-delay="600">
           <i class="bi bi-list" style="font-size:1.5rem;color:#fff;"></i>
         </button>
-
         <div class="offcanvas offcanvas-end text-bg-dark"
              tabindex="-1"
              id="offcanvasNavbar"
@@ -423,45 +273,38 @@
             </ul>
           </div>
         </div>
-
       </div>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Section with Professional Summary & Resume Button -->
   <section id="hero">
     <div class="container">
       <div class="row align-items-center justify-content-center flex-lg-row-reverse g-4 about-content">
-        <!-- hero image -->
         <div class="col-lg-4 col-md-5 hero-img-wrapper text-center" data-aos="fade-up" data-aos-delay="600">
           <img src="assets/images/Megha.jpg" alt="Meghanath Tattari" class="hero-floating-img pic">
         </div>
-
-        <!-- hero text -->
         <div class="col-lg-8 col-md-7 hero-text text-md-start text-center hero-content">
           <span class="h5 d-block mb-2" data-aos="fade-up" data-aos-delay="0"></span>
-
-          <h1 class="fw-bold mb-3 name" style="color:#e056fd;" data-aos="fade-up" data-aos-delay="200">
-            Meghanath Tattari
-          </h1>
-
+          <h1 class="fw-bold mb-3 name" style="color:#e056fd;" data-aos="fade-up" data-aos-delay="200">Meghanath Tattari</h1>
           <button class="btn hero-role-badge mb-3 btn-showcase" data-aos="fade-up" data-aos-delay="400">
             <i class="bi bi-stars"></i> Full-Stack Developer
           </button>
-
-          <p class="lead mb-4 tagline" data-aos="fade-up" data-aos-delay="600">
-            Software Engineer with 5+ years of experience designing scalable systems and secure microservices.
-            Adept at developing RESTful APIs and mentoring peers in agile, CI/CD environments.
+          <p class="lead mb-4 tagline pro-summary" data-aos="fade-up" data-aos-delay="600">
+            Software Engineer with 5 years of experience designing scalable backend systems and secure microservices. Adept at developing high-performance RESTful APIs and ensuring robust testing within agile, CI/CD environments. Proven track record in building reliable systems for healthcare and financial applications while providing clear technical guidance and mentoring to peers.
           </p>
-
           <div class="social-links mb-4 social-icons">
             <a href="https://github.com/Meghanath1435" target="_blank" aria-label="GitHub" class="github" data-aos="fade-up" data-aos-delay="620"><i class="bi bi-github"></i></a>
             <a href="https://www.linkedin.com/in/meghanath-tattari/" target="_blank" aria-label="LinkedIn" class="linkedin" data-aos="fade-up" data-aos-delay="640"><i class="bi bi-linkedin"></i></a>
           </div>
-
           <div class="d-flex flex-wrap hero-actions gap-3 call-to-action">
             <a href="#contact" data-aos="fade-up" data-aos-delay="700"><button type="button" class="btn btn-primary px-4 primary-bg-btn"><i class="bi bi-envelope"></i> Contact Me</button></a>
             <a href="#projects" data-aos="fade-up" data-aos-delay="800"><button type="button" class="btn btn-danger px-4 btn-light secondary-bg-btn">Projects <i class="bi bi-arrow-up-right-circle"></i></button></a>
+            <div class="d-flex flex-wrap hero-actions gap-3 call-to-action">
+              <a href="assets/MEGHANATH-TATTARI_Full-Stack-Developer-1.pdf" target class="btn btn-success px-4 btn-light resume-btn">
+                View Resume <span>🔽</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -471,16 +314,12 @@
   <!-- Things I Love -->
   <section id="things-i-love">
     <div class="container">
-      <div class="section-subtitle">
-        <span class="theme-button theme-text" data-text="Interests">Interests</span>
-      </div>
+     
       <h2 class="section-heading text-center">Things I Love</h2>
       <div class="row justify-content-center pt-3 gy-4">
         <div class="col-lg-4 col-md-6" data-aos="fade-up">
           <div class="card">
-            <div class="circle-container">
-              <div class="circle"><i class="bi bi-droplet-half"></i></div>
-            </div>
+            <div class="circle-container"><div class="circle"><i class="bi bi-droplet-half"></i></div></div>
             <div class="card-body">
               <p class="card-title">Designing</p>
               <p class="card-text">I love designing. When I see something that needs improvement, I enjoy making it better visually. I pay attention to every detail, whether it's a graphic or a user interface. My goal is to create designs that catch the eye and inspire others.</p>
@@ -489,9 +328,7 @@
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up">
           <div class="card">
-            <div class="circle-container">
-              <div class="circle"><i class="bi bi-code-slash"></i></div>
-            </div>
+            <div class="circle-container"><div class="circle"><i class="bi bi-code-slash"></i></div></div>
             <div class="card-body">
               <p class="card-title">Developing</p>
               <p class="card-text">After designing, I dive into development. Coding is where I bring designs to life, turning concepts into digital experiences. Each line of code reflects my vision for functionality and elegance, showcasing my commitment to excellence.</p>
@@ -500,9 +337,7 @@
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up">
           <div class="card">
-            <div class="circle-container">
-              <div class="circle"><i class="bi bi-cup-hot"></i></div>
-            </div>
+            <div class="circle-container"><div class="circle"><i class="bi bi-cup-hot"></i></div></div>
             <div class="card-body">
               <p class="card-title">Expanding</p>
               <p class="card-text">Expanding beyond creation, I optimize. From templates to full websites, I refine post-development. Leveraging blogging and basic SEO, I enhance visibility and impact online. Each step maximizes reach and effectiveness online.</p>
@@ -513,38 +348,90 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- About with Education Highlight -->
   <section id="about">
     <div class="container">
-      <div class="section-subtitle">
-        <span class="theme-button theme-text" data-text="But who am I?">But who am I?</span>
-      </div>
+      
       <h2 class="section-heading text-center">About Me</h2>
       <p class="text-center muted-text mt-3 mb-4">My story in a nutshell ;)</p>
       <div class="row justify-content-center align-items-center g-4" data-aos="fade-down" data-aos-delay="200">
-        <div class="col-lg-4 text-center about-portrait">
-          <img src="assets/images/Megha.jpg" class="img-fluid pic" alt="Meghanath Tattari Portrait">
-        </div>
+        <div class="col-lg-4 text-center about-portrait"><img src="assets/images/Megha.jpg" class="img-fluid pic" alt="Meghanath Tattari Portrait"></div>
         <div class="col-lg-8">
           <p class="bio">
             Hi, I’m Meghanath, a Full Stack Developer passionate about building smart, user-friendly web apps powered by AI.
-            I love creating clean designs, scalable systems, and tools that make technology feel effortless.
-            <br><br>
-            I served as Student Council President for over 3,800 students and led multiple clubs, sharpening leadership and collaboration skills.
-            <br><br>
+            I love creating clean designs, scalable systems, and tools that make technology feel effortless.<br><br>
+            I served as Student Council President for over 3,800 students and led multiple clubs, sharpening leadership and collaboration skills.<br><br>
             Those experiences shaped my creativity and problem-solving mindset, qualities I bring into every project.
           </p>
-        </div>
+         <!-- Education Card with Two Degrees -->
+<div class="education mt-4 text-start">
+  <h3 style="color:#6bdcff;">Education</h3>
+  <div style="margin-bottom:1rem;">
+    <strong style="color:#fff;">Campbellsville University, United States</strong><br>
+    <span style="color:#edd7ff;">Masters, Computer Science</span>
+  </div>
+  <div>
+    <strong style="color:#fff;">CMR College of Engineering & Technology, India</strong><br>
+    <span style="color:#edd7ff;">Bachelor of Technology</span>
+  </div>
+</div>
+
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Work Experience Section -->
+<section id="experience">
+  <div class="container">
+   
+    <h2 class="section-heading text-center">Professional Experience</h2>
+
+    <div class="card mb-4" style="background:rgba(34,36,41,0.98); border-radius:14px; box-shadow:0 6px 40px #6bdcff24;">
+      <div class="card-body">
+        <h4 style="color:#6bdcff;">Optum</h4>
+        <span style="color:#ede4ff;">Full Stack Software Engineer | Jul 2024 - Present</span>
+        <ul style="color:#ddd; margin-top:.5rem;">
+          <li>Built a Risk Compliance Management platform using secure RESTful APIs and .NET microservices to enhance healthcare risk monitoring and regulatory compliance.</li>
+          <li>Developed ASP.NET Core microservices interfacing with compliance, audit, and claims, and engineered real-time dashboards in Angular.</li>
+          <li>Integrated AI-driven anomaly detection and predictive risk scoring using Python, Scikit-learn, Azure ML.</li>
+          <li>Automated CICD pipelines with Azure DevOps and Terraform for secure, resilient cloud deployments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-4" style="background:rgba(34,36,41,0.94); border-radius:14px; box-shadow:0 4px 28px #ff6b6b14;">
+      <div class="card-body">
+        <h4 style="color:#ff6b6b;">Citi</h4>
+        <span style="color:#ede4ff;">Full Stack Developer | May 2023 - Jul 2024</span>
+        <ul style="color:#ddd; margin-top:.5rem;">
+          <li>Developed a Financial Transaction Claims System for Citi’s banking, streamlining validation, claims processing, and reconciliation.</li>
+          <li>Built Angular dashboards and RESTful APIs (ASP.NET 6, PostgreSQL/SQL Server), migrated legacy modules for scalability.</li>
+          <li>Implemented ML models for fraud detection and automated claims review, improving risk mitigation by 20%.</li>
+          <li>Secured identity management and encrypted storage using AWS Cognito, S3; automated deployments via CodePipeline.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-4" style="background:rgba(40,42,48,0.92); border-radius:14px; box-shadow:0 2px 18px #6bdcff12;">
+      <div class="card-body">
+        <h4 style="color:#ffb86c;">Adons Softech</h4>
+        <span style="color:#ede4ff;">Software Engineer | Sep 2019 - Jul 2022</span>
+        <ul style="color:#ddd; margin-top:.5rem;">
+          <li>Developed booking platforms with React and REST APIs, optimized UX and backend data flow.</li>
+          <li>Integrated AI-based fare prediction, improved conversion rates by 15% using Python and Scikit-learn.</li>
+          <li>Automated CICD deployments and enhanced API reliability via AWS, OpenAPI, and unit testing.</li>
+          <li>Implemented real-time analytics, Stripe/PayPal payments, and monitored reservations via Chart.js, Grafana.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Skills enhanced with tech stack summary -->
   <section id="skills">
     <div class="container text-center">
-      <div class="section-subtitle">
-        <span class="theme-button theme-text" data-text="What do I know?">What do I know?</span>
-      </div>
+      
       <h2 class="section-heading text-center">Skills</h2>
       <p class="muted-text mt-3 mb-4">Technologies I work with:</p>
 
@@ -827,56 +714,58 @@
     </div>
   </section>
 
-  <!-- Projects -->
+
+  <!-- Projects section with role and AI/ML badges -->
   <section id="projects">
     <div class="container">
-      <div class="section-subtitle">
-        <span class="theme-button theme-text" data-text="What I've done?">What I've done?</span>
-      </div>
+
       <h2 class="section-heading text-center">Projects</h2>
-
       <div class="row justify-content-center mt-4 gy-4" data-aos="fade-up" data-aos-delay="200">
-
-        <!-- Project 1 -->
+  
+        <!-- AI Course Generator -->
         <div class="col-lg-4 col-md-6">
           <div class="card project-card">
             <div class="card-body">
               <div class="d-flex align-items-center">
                 <div class="col-2">
-                  <img src="assets/images/projects/Ai logo.jpeg" class="img-fluid icon" alt="AI Course Generator">
+                  <img src="assets/images/projects/Course.png" class="img-fluid icon" alt="AI Course Generator">
                 </div>
                 <div class="col-7 p-0">
                   <a href="https://github.com/Meghanath1435/ai-course-generator" class="card-title title" target="_blank">AI Course Generator</a>
-                  <p class="stacks m-0">Next.js | OpenAI | Tailwind</p>
+                  <span class="badge badge-role">Full Stack Engineer</span>
+                  <span class="badge badge-ai">AI/ML</span>
+                  <p class="stacks m-0">Next.js | OpenAI | Tailwind | PostgreSQL | Firebase | Shadcn UI</p>
                 </div>
                 <div class="col-3 align-middle">
-                  <a href="https://github.com/Meghanath1435/ai-course-generator/" class="btn btn-sm primary-bg-btn rounded-5" target="_blank">Visit <i class="bi bi-arrow-up-right-circle-fill"></i></a>
+                  <a href="https://github.com/Meghanath1435/ai-course-generator" class="btn btn-sm primary-bg-btn rounded-5" target="_blank">Visit <i class="bi bi-arrow-up-right-circle-fill"></i></a>
                 </div>
               </div>
             </div>
             <div class="description-container">
-              <p class="description">Quiz Generator Using AI, an interactive web app that builds custom quizzes with live feedback and motion UI.</p>
+              <p class="description">Web app that uses AI to create full online courses from single prompts—auto-generating outlines and embedding learning resources.</p>
             </div>
             <div class="banner-container">
               <div class="overlay">
-                <a href="https://github.com/Meghanath1435/ai-course-generator" target="_blank">AI Course Generator</a>
+                <a href="https://github.com/Meghanath1435/ai-course-generator" target="_blank">Live Demo</a>
               </div>
               <img src="assets/images/projects/Course generator.png" class="card-img-top banner" alt="AI Course Generator Banner">
             </div>
           </div>
         </div>
-
-        <!-- Project 2 -->
+  
+        <!-- Quiz Generator Using AI -->
         <div class="col-lg-4 col-md-6">
           <div class="card project-card">
             <div class="card-body">
               <div class="d-flex align-items-center">
                 <div class="col-2">
-                  <img src="assets/images/projects/Course.png" class="img-fluid icon" alt="Quiz Generator Using AI">
+                  <img src="assets/images/projects/Ai logo.jpeg" class="img-fluid icon" alt="Quiz Generator Using AI">
                 </div>
                 <div class="col-7 p-0">
                   <a href="https://github.com/Meghanath1435/Quiz-Generator-Using-AI" class="card-title title" target="_blank">Quiz Generator Using AI</a>
-                  <p class="stacks m-0">Next.js | Firebase | Shadcn</p>
+                  <span class="badge badge-role">Full Stack Engineer</span>
+                  <span class="badge badge-ai">AI/ML</span>
+                  <p class="stacks m-0">Next.js | Firebase | Tailwind CSS | Framer Motion | Shadcn</p>
                 </div>
                 <div class="col-3 align-middle">
                   <a href="https://github.com/Meghanath1435/Quiz-Generator-Using-AI" class="btn btn-sm primary-bg-btn rounded-5" target="_blank">Visit <i class="bi bi-arrow-up-right-circle-fill"></i></a>
@@ -884,18 +773,18 @@
               </div>
             </div>
             <div class="description-container">
-              <p class="description">AI Course Generator, an AI-powered tool that creates full course outlines, videos and assets from a single prompt.</p>
+              <p class="description">Interactive quiz platform powered by GPT API; creates custom quizzes in real time, with animated UI and audio features.</p>
             </div>
             <div class="banner-container">
               <div class="overlay">
-                <a href="https://github.com/Meghanath1435/Quiz-Generator-Using-AI" target="_blank">Quiz Generator Using AI</a>
+                <a href="https://github.com/Meghanath1435/Quiz-Generator-Using-AI" target="_blank">Live Demo</a>
               </div>
               <img src="assets/images/projects/AI Quiz.png" class="card-img-top banner" alt="Quiz Generator Using AI Banner">
             </div>
           </div>
         </div>
-
-        <!-- Project 3 -->
+  
+        <!-- Simple Chatbot -->
         <div class="col-lg-4 col-md-6">
           <div class="card project-card">
             <div class="card-body">
@@ -904,7 +793,9 @@
                   <img src="assets/images/projects/chatbot.png" class="img-fluid icon" alt="Chatbot">
                 </div>
                 <div class="col-7 p-0">
-                  <a href="https://github.com/Meghanath1435/Chatbot" class="card-title title" target="_blank">Chatbot</a>
+                  <a href="https://github.com/Meghanath1435/Chatbot" class="card-title title" target="_blank">Simple Chatbot</a>
+                  <span class="badge badge-role">Python Developer</span>
+                  <span class="badge badge-ai">AI/ML</span>
                   <p class="stacks m-0">Python | Tkinter | JSON</p>
                 </div>
                 <div class="col-3 align-middle">
@@ -913,71 +804,158 @@
               </div>
             </div>
             <div class="description-container">
-              <p class="description">Python chatbot with a Tkinter interface that responds to user inputs using a JSON-based system.</p>
+              <p class="description">Python GUI chatbot—responds to user inputs using fuzzy matching and custom JSON responses. Built for AI experimentation and simplicity.</p>
             </div>
             <div class="banner-container">
               <div class="overlay">
-                <a href="https://github.com/Meghanath1435/Chatbot" target="_blank">Chatbot</a>
+                <a href="https://github.com/Meghanath1435/Chatbot" target="_blank">Live Demo</a>
               </div>
-              <img src="assets/images/projects/preview.jpg" class="card-img-top banner" alt="ChatBot">
+              <img src="assets/images/projects/preview.jpg" class="card-img-top banner" alt="Chatbot Banner">
             </div>
           </div>
         </div>
-
+  
+        <!-- Add more projects following the same template for any other notable work not yet listed! -->
       </div>
     </div>
   </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-subtitle">
-        <span class="theme-button theme-text" data-text="What's next!">What's next!</span>
-      </div>
-      <h2 class="section-heading text-center">Get In Touch</h2>
-      <p class="text-center muted-text mt-3 mb-4">Let's connect and build something great together.</p>
-      <div class="row justify-content-center" data-aos="fade-down" data-aos-delay="500">
-        <div class="col-lg-8">
-          <form action="https://formspree.io/f/xldjelqg" method="POST">
-            <div class="row g-2">
-              <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Name *" required>
-              </div>
-              <div class="col-md-6">
-                <input type="email" name="email" class="form-control" placeholder="Email *" required>
-              </div>
-              <div class="col-md-12">
-                <input type="text" name="subject" class="form-control" placeholder="Subject *" required>
-              </div>
-              <div class="col-md-12">
-                <textarea name="message" rows="5" class="form-control" placeholder="Your message *" required style="resize:none;"></textarea>
-              </div>
-              <div class="col-md-12">
-                <button class="btn primary-bg-btn mt-2" type="submit">Send Message <i class="bi bi-arrow-up-right"></i></button>
-              </div>
-            </div>
-          </form>
+  
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="container">
+  
+    <h2 class="section-heading text-center">Get In Touch</h2>
+    <div class="row justify-content-center align-items-start mt-4">
+      <!-- Glassmorphism Info Panel -->
+      <div class="col-lg-5 col-md-6 col-12 mb-4">
+        <div style="background:rgba(30,30,40,0.82); border-radius:18px; box-shadow:0 6px 36px #6bdcff32; padding:2rem; margin-bottom:1.3rem; backdrop-filter:blur(10px);">
+          <div class="d-flex align-items-center mb-3">
+            <span style="display:inline-block; width:48px; height:48px; background:linear-gradient(135deg,#6bdcff 20%,#ff6b6b 100%); border-radius:12px; display:grid; place-items:center; margin-right:1rem;">
+              <i class="bi bi-envelope fs-2" style="color:#fff;"></i>
+            </span>
+            <span>
+              <strong style="color:#6bdcff;">Email</strong><br>
+              <span style="color:#fff;">Meghtattari@gmail.com</span>
+            </span>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <span style="display:inline-block; width:48px; height:48px; background:linear-gradient(135deg,#ff6b6b 20%,#6bdcff 100%); border-radius:12px; display:grid; place-items:center; margin-right:1rem;">
+              <i class="bi bi-telephone fs-2" style="color:#fff;"></i>
+            </span>
+            <span>
+              <strong style="color:#ff6b6b;">Phone</strong><br>
+              <span style="color:#fff;">+1 660 539 5473</span>
+            </span>
+          </div>
+       
+          <div class="d-flex mt-4 mb-2">
+            <a href="https://github.com/Meghanath1435" target="_blank" class="me-3" style="color:#fff;">
+              <span style="background:#1a242e; padding:.6em .8em; border-radius:8px;">
+                <i class="bi bi-github fs-3"></i>
+              </span>
+            </a>
+            <a href="https://www.linkedin.com/in/meghanath-tattari/" target="_blank" class="me-3" style="color:#fff;">
+              <span style="background:#1a242e; padding:.6em .8em; border-radius:8px;">
+                <i class="bi bi-linkedin fs-3"></i>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
+      <!-- Form Panel -->
+      <div class="col-lg-7 col-md-6 col-12 mb-4">
+        <form action="https://formspree.io/f/xldjelqg" method="POST" style="background:rgba(25,27,36,0.96); border-radius:18px; padding:2rem; box-shadow:0 8px 48px #ff6b6b24;">
+          <div class="form-floating mb-3">
+            <input type="text" name="name" class="form-control" id="floatingName" placeholder="Name" required>
+            <label for="floatingName"><i class="bi bi-person"></i> Your Name *</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="Email" required>
+            <label for="floatingEmail"><i class="bi bi-envelope"></i> Email Address *</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" name="subject" class="form-control" id="floatingSubject" placeholder="Subject" required>
+            <label for="floatingSubject"><i class="bi bi-chat-left-text"></i> Subject *</label>
+          </div>
+          <div class="form-floating mb-4">
+            <textarea name="message" class="form-control" id="floatingMessage" placeholder="Your Message" required style="height: 120px; resize:none;"></textarea>
+            <label for="floatingMessage"><i class="bi bi-pencil"></i> Message *</label>
+          </div>
+          <button class="btn btn-glow btn-block py-3 px-4 mt-2" type="submit" style="background:linear-gradient(90deg,#6bdcff 0,#ff6b6b 100%); color:#fff; font-size:1.1rem; font-weight:600; border-radius:12px; box-shadow:0 0 18px #6bdcff66;">
+            <i class="bi bi-send"></i> SEND MESSAGE
+          </button>
+        </form>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
+
+  <!-- Footer improved with social call-to-action -->
   <footer id="footer">
-    <div class="container">
-      <p class="text-center">Made with <span>Bootstrap, HTML, CSS, JS</span> and a dash of <i class="bi bi-hearts"></i> by <strong>Meghanath Tattari</strong>.</p>
+    <div class="container" style="position: relative; margin-bottom: 0;">
+      <hr style="border: none; height: 4px; background: linear-gradient(90deg, #6bdcff 0%,#ff6b6b 100%); box-shadow: 0 0 18px #6bdcff66;">
+      <div style="
+        background: rgba(34,36,48,0.9);
+        border-radius: 20px;
+        box-shadow: 0 8px 60px #6bdcff22, 0 2px 18px #ff6b6b33;
+        padding: 2.1rem 0 1.6rem 0;
+        margin-top: -18px;
+        position: relative;
+        z-index: 2;">
+        <p class="mb-3 text-center" style="font-size:1.18rem; color:#fbfafc; font-weight:500;">
+          Crafted with love, code & caffeine by
+          <span style="background: linear-gradient(90deg, #6bdcff 0%, #ff6b6b 100%); -webkit-background-clip: text; color: transparent; font-weight:700;">Meghanath Tattari</span>
+        </p>
+        <div class="d-flex justify-content-center align-items-center mb-2">
+          <a href="https://github.com/Meghanath1435"
+             target="_blank"
+             title="GitHub"
+             style="margin:0 10px; display:inline-block;">
+            <span class="footer-icon-wrapper" style="display:inline-block; background:rgba(107,220,255,0.13); border-radius:14px; padding:.55em .83em; box-shadow:0 0 18px #6bdcff88; transition:background 0.2s, transform 0.2s;">
+              <i class="bi bi-github fs-2" style="color:#6bdcff; transition:color 0.25s;"></i>
+            </span>
+          </a>
+          <a href="https://www.linkedin.com/in/meghanath-tattari/"
+             target="_blank"
+             title="LinkedIn"
+             style="margin:0 10px; display:inline-block;">
+            <span class="footer-icon-wrapper" style="display:inline-block; background:rgba(255,107,107,0.13); border-radius:14px; padding:.55em .83em; box-shadow:0 0 18px #ff6b6b88; transition:background 0.2s, transform 0.2s;">
+              <i class="bi bi-linkedin fs-2" style="color:#ff6b6b; transition:color 0.25s;"></i>
+            </span>
+          </a>
+          <a href="mailto:Meghtattari@gmail.com"
+             target="_blank"
+             title="Email"
+             style="margin:0 10px; display:inline-block;">
+            <span class="footer-icon-wrapper" style="display:inline-block; background:rgba(109,86,253,0.12); border-radius:14px; padding:.55em .83em; box-shadow:0 0 18px #e056fd88; transition:background 0.2s, transform 0.2s;">
+              <i class="bi bi-envelope fs-2" style="color:#e056fd; transition:color 0.25s;"></i>
+            </span>
+          </a>
+        </div>
+        <p class="text-center" style="font-size:1.02rem; color:#ddd; margin-top:.8rem;">
+          &copy; <span id="copyright-year"></span> Meghanath Tattari. All rights reserved.<br>
+          <span style="font-size:1.09rem; color: #ff6b6b;">Connect, Collaborate, Create.</span>
+        </p>
+      </div>
     </div>
+    <script>
+      // Footer hover effects for icons
+      document.querySelectorAll(".footer-icon-wrapper").forEach(function(icon) {
+        icon.addEventListener("mouseenter", function() {
+          icon.style.transform = "scale(1.18)";
+          icon.style.background = "linear-gradient(90deg,#6bdcff22 40%,#ff6b6b 60%)";
+        });
+        icon.addEventListener("mouseleave", function() {
+          icon.style.transform = "scale(1)";
+          icon.style.background = "";
+        });
+      });
+      // Dynamic copyright year
+      document.getElementById("copyright-year").textContent = new Date().getFullYear();
+    </script>
   </footer>
-
-  <!-- Back To Top -->
-  <button class="btn" id="backToTopButton" onclick="scrollToTop()" style="display: none;">
-    <span aria-label="Back to top">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-square" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
-      </svg>
-    </span>
-  </button>
-
+  
   <!-- Scripts -->
   <script src="assets/js/aos.js" defer></script>
   <script src="assets/js/jquery-3.7.1.min.js" defer></script>
